@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_deteksi"
+
+        />
+
+    <item
+        android:id="@+id/navigation_bookmark"
+        android:icon="@drawable/ic_peta"
+
+        />
+
+    <item
+        android:id="@+id/navigation_notification"
+        android:icon="@drawable/ic_daftar"
+
+        />
+
+
+</menu>
