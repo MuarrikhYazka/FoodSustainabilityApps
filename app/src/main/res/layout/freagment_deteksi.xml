@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="17dp"
+            android:paddingBottom="30dp">
+
+            <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <TableRow>
+
+                    <TextView
+                        android:text="Deteksi Ketahanan Pangan Indonesia "
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:text="Matikan untuk melihat per Kota"
+                        android:textSize="10dp"
+                        android:textStyle="italic" />
+                </TableRow>
+            </TableLayout>
+
+            <Switch
+                android:id="@+id/switchAmat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"></Switch>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="17dp"
+            android:background="@drawable/entriround"
+            android:orientation="vertical">
+            <TableRow
+                android:id="@+id/tableRow4a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/rst7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Provinsi:  " />
+
+                <Spinner
+                    android:id="@+id/rst_prov"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow_kota"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/kota"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kota/Kabupaten: " />
+
+                <Spinner
+                    android:id="@+id/rst_kota"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/mulaideteksi"
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/button_blue"
+            android:layout_gravity="center"
+            android:text="Deteksi"
+            android:layout_marginTop="@dimen/margin_balok"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/putih" />
+        <Button
+            android:id="@+id/mulaideteksikota"
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/button_blue"
+            android:layout_gravity="center"
+            android:text="Deteksi"
+            android:layout_marginTop="@dimen/margin_balok"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/putih"
+            android:visibility="gone"/>
+    </LinearLayout>
+        
+        
+
+</RelativeLayout>

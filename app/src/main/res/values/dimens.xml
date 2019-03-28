@@ -1,0 +1,15 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="margin_balok">17dp</dimen>
+    <dimen name="padding_balok">17dp</dimen>
+    <dimen name="elevation_balok">3dp</dimen>
+    <dimen name="batas_antar_paragraf">10dp</dimen>
+    <dimen name="margin_list">7dp</dimen>
+    <dimen name="margin_gambar">7dp</dimen>
+    <dimen name="padding_balok_feedback">12dp</dimen>
+
+    <dimen name="icon_size">63dp</dimen>
+</resources>

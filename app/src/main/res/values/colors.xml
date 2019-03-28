@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#FFC107</color>
+    <color name="colorPrimaryDark">#FFA000</color>
+    <color name="backgroundcolor">#fcfcfc</color>
+    <color name="lightgray">#ededed</color>
+    <color name="deeppurple">#7c4dff</color>
+    <color name="yellow">#ffb300</color>
+    <color name="green">#00bfa5</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="darkblue">#23283a</color>
+    <color name="testcolorblue">#152b38</color>
+    <color name="pink">#fe104d</color>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="hijaumuda">#84d953</color>
+    <color name="birumuda">#51c1c5</color>
+    <color name="birutua">#0f80aa</color>
+    <color name="hijautua">#235b33</color>
+    <color name="putih">#ffff</color>
+    <color name="sikoko">#890620</color>
+    <color name="abuabuinactive">#bcc9dd</color>
+    <color name="abuabuinactivegelap">#6E7B91</color>
+    <color name="birutuadikit">#2d0ec9</color>
+    <color name="trv_toolbar">#1ba0e2</color>
+    <color name="trv_camera">#0770cd</color>
+    <color name="trv_atas">#1694dc</color>
+    <color name="trv_button">#f96d01</color>
+    <color name="trv_abuabu">#9b9b9b</color>
+    <color name="lime">	#00FF00</color>
+    <color name="forest_green">	#228B22</color>
+    <color name="navyBlue">#566892</color>
+    <color name="deepNavyBlue">#3C4B6B</color>
+    <color name="white">#FEFEFE</color>
+    <color name="skyBlue">#6ABAE8</color>
+    <color name="lightBlue">#3691CF</color>
+    <color name="littleBlue">#008FD7</color>
+    <color name="transparant">#00000000</color>
+    <color name="whiteTransparant">#5FFFFFFF</color>
+    <color name="abuabuterang">#AAAAAA</color>
+    <color name="softBlack">#333333</color>
+    <color name="blueButtonLogin">#235C9F</color>
+    <color name="deapBlueButtonLogin">#0F4895</color>
+    <color name="transparanbanget">#00FFFFFF</color>
 </resources>

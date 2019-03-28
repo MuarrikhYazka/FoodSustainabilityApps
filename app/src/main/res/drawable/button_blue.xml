@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- default -->
+    <item
+        android:state_pressed="false"
+        android:state_focused="false">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android">
+            <solid android:color="@color/birumuda"></solid>
+            <corners android:radius="20dp"></corners>
+            <size android:width="20dp" android:height="10dp">            </size>
+        </shape>
+    </item>
+
+    <!-- focused -->
+    <item
+        android:state_pressed="false"
+        android:state_focused="true">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android">
+            <solid android:color="@color/birumuda"></solid>
+            <corners android:radius="20dp"></corners>
+            <size android:width="20dp" android:height="10dp"></size>
+        </shape>
+    </item>
+
+    <!-- pressed -->
+    <item
+        android:state_pressed="true"
+        android:state_focused="false">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android">
+            <solid android:color="@color/birumuda"></solid>
+            <corners android:radius="25dp"></corners>
+            <size android:width="20dp" android:height="10dp"></size>
+        </shape>
+    </item>
+</selector>
