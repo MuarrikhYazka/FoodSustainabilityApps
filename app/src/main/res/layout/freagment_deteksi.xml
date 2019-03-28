@@ -35,7 +35,7 @@
             </TableLayout>
 
             <Switch
-                android:id="@+id/switchAmat"
+                android:id="@+id/switchTogle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="right"></Switch>
@@ -82,8 +82,81 @@
 
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginVertical="10dp"
+            android:layout_marginHorizontal="17dp"
+            android:background="@drawable/entriround"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvPrioritas1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:text="PRIORITAS 1"
+                android:textSize="20dp"
+                android:textColor="@color/pink"
+                android:visibility="gone" />
+            <TextView
+                android:id="@+id/tvPrioritas2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:text="PRIORITAS 2"
+                android:textSize="20dp"
+                android:textColor="@color/trv_button"
+                android:visibility="gone" />
+            <TextView
+                android:id="@+id/tvPrioritas3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:text="PRIORITAS 3"
+                android:textSize="20dp"
+                android:textColor="@color/yellow"
+                android:visibility="gone" />
+            <TextView
+                android:id="@+id/tvPrioritas4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:text="PRIORITAS 4"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:visibility="gone" />
+            <TextView
+                android:id="@+id/tvPrioritas5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:text="PRIORITAS 5"
+                android:textSize="20dp"
+                android:textColor="@color/green"
+                android:visibility="gone" />
+            <TextView
+                android:id="@+id/tvPrioritas6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:text="PRIORITAS 6"
+                android:textSize="20dp"
+                android:textColor="@color/trv_atas"
+                android:visibility="gone" />
+
+        </LinearLayout>
         <Button
-            android:id="@+id/mulaideteksi"
+            android:id="@+id/deteksiProv"
             android:layout_width="wrap_content"
             android:layout_height="?attr/actionBarSize"
             android:layout_alignParentBottom="true"
@@ -94,7 +167,7 @@
             android:layout_marginBottom="30dp"
             android:textColor="@color/putih" />
         <Button
-            android:id="@+id/mulaideteksikota"
+            android:id="@+id/deteksiKota"
             android:layout_width="wrap_content"
             android:layout_height="?attr/actionBarSize"
             android:layout_alignParentBottom="true"

@@ -9,7 +9,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.foodsustainabilityapps.R;
@@ -23,7 +26,10 @@ import java.util.List;
 public class DeteksiFragment extends Fragment {
     List<Provinsi> provinsi = new LinkedList<Provinsi>();
     List<Kota> kota = new LinkedList<Kota>();
-    Spinner sp_prov
+    Spinner spinnerProv, spinnerKota;
+    TextView prioritas1, prioritas2, prioritas3, prioritas4, prioritas5, prioritas6;
+    Button deteksiProv, deteksiKota;
+    Switch togle;
     private ViewModel viewModel;
     @Nullable
     @Override
@@ -42,12 +48,6 @@ public class DeteksiFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        try{
-            Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
-            toolbar.setTitle("Deteksi");
-        }catch(Exception e){
-            Toast.makeText(context, "Aplikasi tidak mendukung posisi landscape.", Toast.LENGTH_SHORT).show();
-        }
     }
 
     @Override
