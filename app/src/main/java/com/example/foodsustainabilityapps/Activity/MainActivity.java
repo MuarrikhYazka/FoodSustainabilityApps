@@ -1,5 +1,6 @@
 package com.example.foodsustainabilityapps.Activity;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -10,14 +11,19 @@ import android.view.MenuItem;
 import com.example.foodsustainabilityapps.Fragment.DeteksiFragment;
 import com.example.foodsustainabilityapps.Fragment.ListFragment;
 import com.example.foodsustainabilityapps.Fragment.PetaFragment;
+import com.example.foodsustainabilityapps.Fragment.Predictfragment;
 import com.example.foodsustainabilityapps.R;
+import com.example.foodsustainabilityapps.RoomDatabase.ViewModel;
 
 public class MainActivity extends AppCompatActivity {
+    private ViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
@@ -39,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.navigation_list:
                             selectedFragment = new ListFragment();
                             break;
+                        case R.id.navigation_predict:
+                            selectedFragment = new Predictfragment();
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                             selectedFragment).commit();

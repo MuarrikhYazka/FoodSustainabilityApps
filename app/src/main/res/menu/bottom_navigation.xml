@@ -12,4 +12,9 @@
         android:id="@+id/navigation_list"
         android:icon="@drawable/ic_list"
         android:title="List"/>
+
+    <item
+        android:id="@+id/navigation_predict"
+        android:icon="@drawable/ic_predict"
+        android:title="Predict"/>
 </menu>

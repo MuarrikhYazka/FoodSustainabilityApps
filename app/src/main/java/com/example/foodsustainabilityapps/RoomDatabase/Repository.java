@@ -14,6 +14,7 @@ import com.example.foodsustainabilityapps.RoomDatabase.Table.Kota;
 import com.example.foodsustainabilityapps.RoomDatabase.Table.Provinsi;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class Repository {
     private static final String TAG = "Repository";
@@ -22,40 +23,91 @@ public class Repository {
     private DataProvinsiDao dataProvinsiDao;
     private DataKotaDao dataKotaDao;
 
-    public Repository(Application application) {
-        LocalDatabase ldb = LocalDatabase.getLocalDatabase(application);
-        this.provinsiDao = ldb.provinsiDao();
-        this.kotaDao = ldb.kotaDao();
-        this.dataProvinsiDao = ldb.dataProvinsiDao();
-        this.dataKotaDao = ldb.dataKotaDao();
+    private List<Provinsi> allProvinsi;
+    private List<Kota> allKota;
+    private List<DataProvinsi> allDataProvinsi;
+    private List<DataKota> allDataKota;
 
+    public Repository(Application application){
+        LocalDatabase localDatabase = LocalDatabase.getInstance(application);
+        provinsiDao = localDatabase.provinsiDao();
+        kotaDao = localDatabase.kotaDao();
+        dataKotaDao = localDatabase.dataKotaDao();
+        dataProvinsiDao = localDatabase.dataProvinsiDao();
+
+//        allProvinsi = provinsiDao.getAllProv();
+//        allKota = kotaDao.getAllKota();
+//        allDataProvinsi = dataProvinsiDao.getAllDataProv();
+//        allDataKota = dataKotaDao.getAllDataKota();
     }
 
-    public static class getListFase_ProvLokalAsync extends AsyncTask<Void, Void, List<Provinsi>> {
+    private static class InsertProvAsync extends AsyncTask<Provinsi,Void,Void>{
         private ProvinsiDao provinsiDao;
 
-        public getListFase_ProvLokalAsync(ProvinsiDao provinsiDao) {
+        public InsertProvAsync(ProvinsiDao provinsiDao) {
             this.provinsiDao = provinsiDao;
         }
 
         @Override
-        protected List<Provinsi> doInBackground(Void... voids) {
-            return provinsiDao.getAllProv();
+        protected Void doInBackground(Provinsi... provinsis) {
+            provinsiDao.insertAllProv(provinsis[0]);
+            return null;
         }
-    }
-    public List<Provinsi> getListProvinsidarilokal() {
-        try {
-            return new getListFase_ProvLokalAsync(provinsiDao).execute().get();
-        } catch (Exception e) {
-            Log.d(TAG, "prov: " + e.getMessage());
-        }
-        return null;
     }
 
-    public static class getListKotaLokalAsync extends AsyncTask<Void, Void, List<Kota>> {
+    private static class InsertKotaAsync extends AsyncTask<Kota, Void, Void>{
         private KotaDao kotaDao;
 
-        public getListKotaLokalAsync(KotaDao kotaDao) {
+        public InsertKotaAsync(KotaDao kotaDao) {
+            this.kotaDao = kotaDao;
+        }
+
+        @Override
+        protected Void doInBackground(Kota... kotas) {
+            kotaDao.insertAllKota(kotas[0]);
+            return null;
+        }
+    }
+
+    private static class InsertDataProvAsync extends AsyncTask<DataProvinsi, Void, Void>{
+        private DataProvinsiDao dataProvinsiDao;
+
+        public InsertDataProvAsync(DataProvinsiDao dataProvinsiDao) {
+            this.dataProvinsiDao = dataProvinsiDao;
+        }
+
+        @Override
+        protected Void doInBackground(DataProvinsi... dataProvinsis) {
+            dataProvinsiDao.insertDataProv(dataProvinsis[0]);
+            return null;
+        }
+    }
+
+    private static class IsertDataKotaAsync extends AsyncTask<DataKota,Void,Void>{
+        private DataKotaDao dataKotaDao;
+
+        public IsertDataKotaAsync(DataKotaDao dataKotaDao) {
+            this.dataKotaDao = dataKotaDao;
+        }
+
+        @Override
+        protected Void doInBackground(DataKota... dataKotas) {
+            dataKotaDao.insertDataKota(dataKotas[0]);
+            return null;
+        }
+    }
+
+    public void insertProvinsi(Provinsi provinsi){new InsertProvAsync(provinsiDao).execute(provinsi);}
+    public void insertKota(Kota kota){new InsertKotaAsync(kotaDao).execute(kota);}
+    public void insertDataProv(DataProvinsi dataProvinsi){
+        new InsertDataProvAsync(dataProvinsiDao).execute(dataProvinsi);
+    }
+    public void insertDataKota(DataKota dataKota){new IsertDataKotaAsync(dataKotaDao).execute(dataKota);}
+
+    public static class getAllKotaAsync extends AsyncTask<Void,Void,List<Kota>>{
+        private KotaDao kotaDao;
+
+        public getAllKotaAsync(KotaDao kotaDao) {
             this.kotaDao = kotaDao;
         }
 
@@ -64,56 +116,91 @@ public class Repository {
             return kotaDao.getAllKota();
         }
     }
-    public List<Kota> getListKotadarilokal() {
+
+    public static class getAllProvAsync extends AsyncTask<Void,Void,List<Provinsi>>{
+        private ProvinsiDao provinsiDao;
+
+        public getAllProvAsync(ProvinsiDao provinsiDao) {
+            this.provinsiDao = provinsiDao;
+        }
+
+        @Override
+        protected List<Provinsi> doInBackground(Void... voids) {
+            return provinsiDao.getAllProv();
+        }
+    }
+
+    public static class getAllDataProvinsiAsync extends AsyncTask<Void,Void,List<DataProvinsi>>{
+        private DataProvinsiDao dataProvinsiDao;
+
+        public getAllDataProvinsiAsync(DataProvinsiDao dataProvinsiDao) {
+            this.dataProvinsiDao = dataProvinsiDao;
+        }
+
+        @Override
+        protected List<DataProvinsi> doInBackground(Void... voids) {
+            return dataProvinsiDao.getAllDataProv();
+        }
+    }
+
+    public static class getAllDataKotaAsync extends AsyncTask<Void,Void,List<DataKota>>{
+        private DataKotaDao dataKotaDao;
+
+        public getAllDataKotaAsync(DataKotaDao dataKotaDao) {
+            this.dataKotaDao = dataKotaDao;
+        }
+
+        @Override
+        protected List<DataKota> doInBackground(Void... voids) {
+            return dataKotaDao.getAllDataKota();
+        }
+    }
+
+    public List<Provinsi> getAllProvinsiLocal(){
         try {
-            return new getListKotaLokalAsync(kotaDao).execute().get();
-        } catch (Exception e) {
-            Log.d(TAG, "kota: " + e.getMessage());
+            return new  getAllProvAsync(provinsiDao).execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public List<Kota> getAllKotaLocal(){
+        try {
+            return new getAllKotaAsync(kotaDao).execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
         return null;
     }
 
-    public static class getDataProvbyProvlocalAsync extends AsyncTask<String, Void, DataProvinsi> {
-        private DataProvinsiDao dataProvinsiDao;
-
-        private getDataProvbyProvlocalAsync(DataProvinsiDao dao) {
-            dataProvinsiDao = dao;
-        }
-
-        @Override
-        protected DataProvinsi doInBackground(String... strings) {
-            return dataProvinsiDao.getDataProvByProv(strings[0]);
-        }
-    }
-
-    public DataProvinsi getdataProvbyProvlocal(String prov) {
+    public List<DataProvinsi> getAllDataProvinsiLocal(){
         try {
-            return new getDataProvbyProvlocalAsync(dataProvinsiDao).execute(prov).get();
-        } catch (Exception e) {
-            Log.d(TAG, "getSubSegmenbysegmenlocal: " + e.getMessage());
-            return null;
-        }
+            return  new getAllDataProvinsiAsync(dataProvinsiDao).execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }return null;
     }
 
-    public static class getDataKotabykotalocalAsync extends AsyncTask<String, Void, DataKota> {
-        private DataKotaDao dataKotaDao;
-
-        private getDataKotabykotalocalAsync(DataKotaDao dao) {
-            dataKotaDao = dao;
-        }
-
-        @Override
-        protected DataKota doInBackground(String... strings) {
-            return dataKotaDao.getDataKotaByKota(strings[0]);
-        }
-    }
-
-    public DataKota getdataKotabyKotalocal(String kota) {
+    public List<DataKota> getAllDataKotaLocal(){
         try {
-            return new getDataKotabykotalocalAsync(dataKotaDao).execute(kota).get();
-        } catch (Exception e) {
-            Log.d(TAG, "getSubSegmenbysegmenlocal: " + e.getMessage());
-            return null;
-        }
+            return  new getAllDataKotaAsync(dataKotaDao).execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }return null;
+
     }
+
+    public int getPriorProv(String prov){return dataProvinsiDao.getPriorityProvByProv(prov);}
+    public int getPriorKota(String kota){return dataKotaDao.getPriorityKotaByKota(kota);}
+
+
+
 }

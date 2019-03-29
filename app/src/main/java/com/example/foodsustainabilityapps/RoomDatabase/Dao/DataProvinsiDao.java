@@ -8,6 +8,8 @@ import android.arch.persistence.room.Query;
 import com.example.foodsustainabilityapps.RoomDatabase.Table.DataKota;
 import com.example.foodsustainabilityapps.RoomDatabase.Table.DataProvinsi;
 
+import java.util.List;
+
 @Dao
 public interface DataProvinsiDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -18,4 +20,8 @@ public interface DataProvinsiDao {
 
     @Query("SELECT prority FROM data_prov WHERE provinsi = :provinsi")
     int getPriorityProvByProv(String provinsi);
+
+    @Query("SELECT * FROM data_prov ")
+    List<DataProvinsi> getAllDataProv();
+
 }

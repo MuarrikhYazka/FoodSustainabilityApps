@@ -7,6 +7,8 @@ import android.arch.persistence.room.Query;
 
 import com.example.foodsustainabilityapps.RoomDatabase.Table.DataKota;
 
+import java.util.List;
+
 
 @Dao
 public interface DataKotaDao {
@@ -15,6 +17,9 @@ public interface DataKotaDao {
 
     @Query("SELECT * FROM data_kota WHERE kota = :kota")
     DataKota getDataKotaByKota(String kota);
+
+    @Query("SELECT * FROM data_kota")
+    List<DataKota> getAllDataKota();
 
     @Query("SELECT prority_kota FROM data_kota WHERE kota = :kota")
     int getPriorityKotaByKota(String kota);

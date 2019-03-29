@@ -5,6 +5,7 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
 
 import com.example.foodsustainabilityapps.RoomDatabase.Table.DataKota;
+import com.example.foodsustainabilityapps.RoomDatabase.Table.DataProvinsi;
 import com.example.foodsustainabilityapps.RoomDatabase.Table.Kota;
 import com.example.foodsustainabilityapps.RoomDatabase.Table.Provinsi;
 
@@ -16,8 +17,9 @@ public class ViewModel extends AndroidViewModel {
         super(application);
         mRepository = new Repository(application);
     }
-    public List<Kota> getKota(){return mRepository.getListKotadarilokal();}
-    public List<Provinsi> getProv(){return mRepository.getListProvinsidarilokal();}
-    public DataKota getDataKotabyKota(String kota){return mRepository.getdataKotabyKotalocal(kota);}
-    public DataKota getDataProvbyProv(String prov){return mRepository.getdataKotabyKotalocal(prov);}
+    public List<Kota> getKota(){return mRepository.getAllKotaLocal();}
+    public List<Provinsi> getProv(){return mRepository.getAllProvinsiLocal();}
+    public List<DataKota> getAllDataKota(){return mRepository.getAllDataKotaLocal();}
+    public List<DataProvinsi> getAllDataProv(){return mRepository.getAllDataProvinsiLocal();}
+    public int
 }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/margin_list"
+    android:layout_marginTop="@dimen/margin_list"
+    android:background="@drawable/background_list"
+    android:padding="@dimen/padding_balok_feedback"
+    android:elevation="@dimen/elevation_balok">
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_prior1"/>
+
+    <TextView
+        android:id="@+id/textViewHead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/img"
+        android:paddingLeft="@dimen/padding_balok_feedback"
+        android:text="IDnya nanti"
+        android:layout_centerVertical="true"
+        android:textStyle="bold"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="@color/black_overlay"
+        android:textSize="18sp" />
+
+    <TextView
+    android:id="@+id/textViewDesc"
+    android:layout_width="300dp"
+    android:layout_height="21dp"
+    android:layout_below="@id/textViewHead"
+    android:layout_toRightOf="@id/img"
+    android:paddingLeft="10dp"
+    android:paddingBottom="2dp"
+    android:text='"Isi Pesannya"' />
+
+
+
+
+</RelativeLayout>
