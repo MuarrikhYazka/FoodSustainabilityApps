@@ -152,6 +152,48 @@
                 android:textSize="20dp"
                 android:textColor="@color/trv_atas"
                 android:visibility="gone" />
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/ic_prior1"
+                android:id="@+id/img_prior1"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/ic_prior2"
+                android:id="@+id/img_prior2"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/ic_prior3"
+                android:id="@+id/img_prior3"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/ic_prior4"
+                android:id="@+id/img_prior4"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/ic_prior5"
+                android:id="@+id/img_prior5"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/ic_prior6"
+                android:id="@+id/img_prior6"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
 
         </LinearLayout>
         <Button
@@ -166,18 +208,6 @@
             android:layout_marginBottom="30dp"
             android:textColor="@color/putih"
             android:tooltipText="Deteksi"/>
-        <Button
-            android:id="@+id/deteksiKota"
-            android:layout_width="wrap_content"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_alignParentBottom="true"
-            android:background="@drawable/button_blue"
-            android:layout_gravity="center"
-            android:text="Deteksi"
-            android:layout_marginTop="@dimen/margin_balok"
-            android:layout_marginBottom="30dp"
-            android:textColor="@color/putih"
-            android:visibility="gone"/>
     </LinearLayout>
         
         

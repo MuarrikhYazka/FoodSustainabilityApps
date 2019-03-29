@@ -21,5 +21,6 @@ public class ViewModel extends AndroidViewModel {
     public List<Provinsi> getProv(){return mRepository.getAllProvinsiLocal();}
     public List<DataKota> getAllDataKota(){return mRepository.getAllDataKotaLocal();}
     public List<DataProvinsi> getAllDataProv(){return mRepository.getAllDataProvinsiLocal();}
-    public int
+    public int getPriorProv(String prov){return mRepository.getPriorProv(prov);}
+    public int getPriorKota(String kota){return mRepository.getPriorKota(kota);}
 }

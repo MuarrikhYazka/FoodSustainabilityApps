@@ -19,6 +19,7 @@ import android.widget.RelativeLayout;
 import com.example.foodsustainabilityapps.Adapter.ListAdapter;
 import com.example.foodsustainabilityapps.R;
 import com.example.foodsustainabilityapps.RoomDatabase.Table.DataKota;
+import com.example.foodsustainabilityapps.RoomDatabase.Table.DataProvinsi;
 import com.example.foodsustainabilityapps.RoomDatabase.ViewModel;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public class ListFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private SwipeRefreshLayout mSwipeRefreshLayout;
-    private List<DataKota> listItems;
+    private List<DataProvinsi> listItems;
     private ViewModel viewModel;
     public RelativeLayout main;
 
@@ -62,7 +63,7 @@ public class ListFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         viewModel = ViewModelProviders.of(this).get(ViewModel.class);
 
-        viewModel.getAllDataKota();
+        viewModel.getAllDataProv();
         LinearLayout nullfeedback = view.findViewById(R.id.feedback_null);
         adapter = new ListAdapter(listItems, getActivity());
         recyclerView.setAdapter(adapter);

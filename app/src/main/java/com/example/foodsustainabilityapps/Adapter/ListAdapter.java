@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.example.foodsustainabilityapps.Activity.ListActivity;
 import com.example.foodsustainabilityapps.R;
 import com.example.foodsustainabilityapps.RoomDatabase.Table.DataKota;
+import com.example.foodsustainabilityapps.RoomDatabase.Table.DataProvinsi;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -27,7 +28,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     private static final String TAG ="Feedback";
 
-    private List<DataKota> listItems = new ArrayList<>();
+    private List<DataProvinsi> listItems = new ArrayList<>();
     private Context context;
     private RelativeLayout parent_layout;
 
@@ -35,7 +36,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         void onItemClick(View v, int position);
     }
 
-    public ListAdapter(List<DataKota> listItems, Context context) {
+    public ListAdapter(List<DataProvinsi> listItems, Context context) {
         this.listItems = listItems;
         this.context = context;
 
@@ -63,11 +64,11 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         Log.d(TAG, "onBindViewHolder: called.");
 
-        final DataKota listItem = listItems.get(position);
+        final DataProvinsi listItem = listItems.get(position);
 
-        holder.textViewHead.setText("Kota: " + listItem.getKota());
+        holder.textViewHead.setText("Provinsi: " + listItem.getProvinsi());
         //holder.textViewDesc.setText(listItem.getIsi_feedback());
-        holder.textViewPriority.setText("Priotitas: "+listItem.getPrority_kota());
+        holder.textViewPriority.setText("Priotitas: "+listItem.getPrority());
 //--------------------------------------------------------------------------------------------------
 
 
@@ -78,16 +79,16 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                 //Toast.makeText(context, "ID Segmen " + listItem.getId_segmen(), Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(context, ListActivity.class);
-                intent.putExtra("Kota/kab: ", listItem.getKota());
-                intent.putExtra("NPCR: ",listItem.getNcpr_kota());
-                intent.putExtra("POV: ", listItem.getPov_kota());
-                intent.putExtra("Road: ", listItem.getKota());
-                intent.putExtra("ELEC: ",listItem.getNcpr_kota());
-                intent.putExtra("Water :", listItem.getPov_kota());
-                intent.putExtra("Life : ", listItem.getKota());
-                intent.putExtra("Flit :",listItem.getNcpr_kota());
-                intent.putExtra("Health : ", listItem.getKota());
-                intent.putExtra("Priority",listItem.getNcpr_kota());
+                intent.putExtra("Provinsi: ", listItem.getProvinsi());
+                intent.putExtra("NPCR: ",listItem.getNcpr());
+                intent.putExtra("POV: ", listItem.getPov());
+                intent.putExtra("Road: ", listItem.getRoad());
+                intent.putExtra("ELEC: ",listItem.getElec());
+                intent.putExtra("Water :", listItem.getWater());
+                intent.putExtra("Life : ", listItem.getLife());
+                intent.putExtra("Flit :",listItem.getFlit());
+                intent.putExtra("Health : ", listItem.getHealth());
+                intent.putExtra("Priority",listItem.getPrority());
                 context.startActivity(intent);
 
             }
@@ -104,7 +105,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         return listItems.size();
     }
 
-    public void setListItems(List<DataKota> listItems){
+    public void setListItems(List<DataProvinsi> listItems){
         this.listItems = listItems;
         notifyDataSetChanged();
     }

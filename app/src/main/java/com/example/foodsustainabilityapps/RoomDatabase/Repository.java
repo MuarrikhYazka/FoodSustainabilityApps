@@ -198,8 +198,52 @@ public class Repository {
 
     }
 
-    public int getPriorProv(String prov){return dataProvinsiDao.getPriorityProvByProv(prov);}
-    public int getPriorKota(String kota){return dataKotaDao.getPriorityKotaByKota(kota);}
+    public static class getPriorProvAsync extends AsyncTask<String,Void, Integer>{
+        private DataProvinsiDao dataProvinsiDao;
+
+        public getPriorProvAsync(DataProvinsiDao dataProvinsiDao) {
+            this.dataProvinsiDao = dataProvinsiDao;
+        }
+
+        @Override
+        protected Integer doInBackground(String... strings) {
+            return dataProvinsiDao.getPriorityProvByProv(strings[0]);
+
+        }
+    }
+
+    public static class getPriorKotaAsync extends AsyncTask<String,Void, Integer>{
+        private DataKotaDao dataKotaDao;
+
+        public getPriorKotaAsync(DataKotaDao dataKotaDao) {
+            this.dataKotaDao = dataKotaDao;
+        }
+
+        @Override
+        protected Integer doInBackground(String... strings) {
+            return dataKotaDao.getPriorityKotaByKota(strings[0]);
+
+        }
+    }
+
+    public int getPriorProv(String prov){
+        try {
+            return new getPriorProvAsync(dataProvinsiDao).execute(prov).get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }return Integer.parseInt(null);
+    }
+    public int getPriorKota(String kota){
+        try {
+            return new getPriorKotaAsync(dataKotaDao).execute(kota).get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }return Integer.parseInt(null);
+    }
 
 
 
