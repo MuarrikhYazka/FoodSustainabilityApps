@@ -15,7 +15,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TableRow;
@@ -40,13 +39,10 @@ public class DeteksiFragment extends Fragment {
     ArrayList<String> nama_kota = new ArrayList<String>();
     Spinner spinnerProv, spinnerKota;
     TextView prioritas1, prioritas2, prioritas3, prioritas4, prioritas5, prioritas6;
-    Button deteksiProv;
+    Button deteksiProv, deteksiKota;
     Switch togle;
     TableRow tableRowKota, tableRowProv;
-    ImageView imgPrior1,imgPrior2,imgPrior3,imgPrior4,imgPrior5,imgPrior6;
     private ViewModel viewModel;
-    private int togle_i,prior;
-    private String kotaSelected,provSelected;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -59,21 +55,50 @@ public class DeteksiFragment extends Fragment {
         prioritas4 = view.findViewById(R.id.tvPrioritas4);
         prioritas5 = view.findViewById(R.id.tvPrioritas5);
         prioritas6 = view.findViewById(R.id.tvPrioritas6);
-        deteksiProv = view.findViewById(R.id.mulaideteksi);
+        deteksiKota = view.findViewById(R.id.deteksiKota);
+//        deteksiProv = view.findViewById(R.id.mulaideteksi);
         tableRowKota = view.findViewById(R.id.tableRow_kota);
         tableRowProv = view.findViewById(R.id.tableRow4a);
         togle = view.findViewById(R.id.switchTogle);
-        imgPrior1 = view.findViewById(R.id.img_prior1);
-        imgPrior2 = view.findViewById(R.id.img_prior2);
-        imgPrior3 = view.findViewById(R.id.img_prior3);
-        imgPrior4 = view.findViewById(R.id.img_prior4);
-        imgPrior5 = view.findViewById(R.id.img_prior5);
-        imgPrior6 = view.findViewById(R.id.img_prior6);
 
-        prior = 2;
-        togle_i = 2;
         id_prov.add(0);
         nama_prov.add("Pilih Salah Satu");
+
+
+
+
+
+
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        togle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    tableRowKota.setVisibility(View.VISIBLE);
+                    spinnerKota.setVisibility(View.VISIBLE);
+                    tableRowProv.setVisibility(View.GONE);
+                    spinnerProv.setVisibility(View.GONE);
+
+                }else {
+                    tableRowKota.setVisibility(View.GONE);
+                    spinnerKota.setVisibility(View.GONE);
+                    tableRowProv.setVisibility(View.VISIBLE);
+                    spinnerProv.setVisibility(View.VISIBLE);
+                    deteksiProv.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            String prov = String.valueOf(spinnerProv.getSelectedItem());
+
+                        }
+                    });
+                }
+            }
+        });
         viewModel = ViewModelProviders.of(DeteksiFragment.this).get(ViewModel.class);
         provinsi = viewModel.getProv();
         for (int i = 0; i< provinsi.size(); i++){
@@ -106,60 +131,9 @@ public class DeteksiFragment extends Fragment {
         }
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, nama_kota);
         spinnerKota.setAdapter(adapter2);
-        deteksiProv = view.findViewById(R.id.deteksiProv);
-        deteksiProv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewModel = ViewModelProviders.of(DeteksiFragment.this).get(ViewModel.class);
-                provSelected = String.valueOf(spinnerProv.getOnItemSelectedListener());
-                prior = viewModel.getPriorProv(provSelected);
-                if (prior==1){
-                    imgPrior1.setVisibility(View.VISIBLE);
-                    prioritas1.setVisibility(View.VISIBLE);
-                } else if (prior==2){
-                    imgPrior2.setVisibility(View.VISIBLE);
-                    prioritas2.setVisibility(View.VISIBLE);
-                } else if (prior==3){
-                    imgPrior3.setVisibility(View.VISIBLE);
-                    prioritas3.setVisibility(View.VISIBLE);
-                } else if (prior==4){
-                    imgPrior4.setVisibility(View.VISIBLE);
-                    prioritas4.setVisibility(View.VISIBLE);
-                } else if (prior==5){
-                    imgPrior5.setVisibility(View.VISIBLE);
-                    prioritas5.setVisibility(View.VISIBLE);
-                }else {
-                    imgPrior6.setVisibility(View.VISIBLE);
-                    prioritas6.setVisibility(View.VISIBLE);
-                }
 
-            }
-        });
 
-        togle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
-                    tableRowKota.setVisibility(View.VISIBLE);
-                    spinnerKota.setVisibility(View.VISIBLE);
-                    tableRowProv.setVisibility(View.GONE);
-                    spinnerProv.setVisibility(View.GONE);
-                    togle_i = 1;
-                }else {
-                    tableRowKota.setVisibility(View.GONE);
-                    spinnerKota.setVisibility(View.GONE);
-                    tableRowProv.setVisibility(View.VISIBLE);
-                    spinnerProv.setVisibility(View.VISIBLE);
-                    togle_i = 2;
-                }
-            }
-        });
-        return view;
-    }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
 
     }
 

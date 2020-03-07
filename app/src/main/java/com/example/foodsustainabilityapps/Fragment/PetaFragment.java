@@ -17,11 +17,11 @@ public class PetaFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View v =  inflater.inflate(R.layout.fragment_peta, container, false);
-        WebView webView =  (WebView) v.findViewById(R.id.webview);
+        WebView webView = v.findViewById(R.id.webview);
         webView.getSettings().setLoadsImagesAutomatically(true);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setDomStorageEnabled(true);
-        webView.loadUrl("https://app.powerbi.com/view?r=eyJrIjoiNjE1OGEyMDUtMjYwMS00MWJmLTk0NWYtNDIyMmQ5YWMzOWQ2IiwidCI6IjlkODdmZmUwLTU2ZGYtNDJmNi04MGNmLTMyM2ZjYzBiYjAxNiIsImMiOjEwfQ%3D%3D");
+        webView.loadUrl("https://public.tableau.com/profile/muarrikh.yazka#!/vizhome/PetaPersebaranDemamBerdarah/Dashboard1");
 
         return v;
     }

@@ -34,8 +34,8 @@
                     android:id="@+id/im_list"
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:background="@drawable/cb_green"
-                    android:src="@drawable/ic_list"
+                    android:background="@drawable/cb_pink"
+                    android:src="@drawable/ic_pensil"
                     android:padding="10dp"/>
 
                 <TextView
@@ -43,7 +43,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="List"
+                    android:text="Reporting"
                     android:textStyle="bold" />
                 <View
                     android:layout_width="match_parent"
@@ -55,7 +55,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Daftar data ketahanan pangan per wilayah"
+                    android:text="Melaporkan kejadian DBD"
                     android:padding="5dp"
                     android:textColor="@android:color/darker_gray"/>
 
@@ -79,9 +79,9 @@
                     android:id="@+id/im_peta"
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:background="@drawable/cb_yellow"
+                    android:background="@drawable/cb_pink"
                     android:padding="10dp"
-                    android:src="@drawable/ic_peta"
+                    android:src="@drawable/ic_warning"
                     />
 
                 <TextView
@@ -89,7 +89,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Peta"
+                    android:text="Warning"
                     android:textStyle="bold" />
 
                 <View
@@ -104,7 +104,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Peta ketahanan pangan Indonesia"
+                    android:text="Peringatan kejadian DBD"
                     android:textColor="@android:color/darker_gray" />
 
             </LinearLayout>
@@ -137,16 +137,16 @@
                     android:id="@+id/im_deteksi"
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:background="@drawable/cb_purple"
+                    android:background="@drawable/cb_pink"
                     android:padding="10dp"
-                    android:src="@drawable/ic_deteksi" />
+                    android:src="@drawable/ic_mata" />
 
                 <TextView
                     android:id="@+id/tv_deteksi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Deteksi"
+                    android:text="Monitoring"
                     android:textStyle="bold" />
 
                 <View
@@ -161,7 +161,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Deteksi ketahanan pangan wilayah"
+                    android:text="Peta persebaran DBD"
                     android:textColor="@android:color/darker_gray" />
 
 
@@ -171,13 +171,13 @@
 
 
     </LinearLayout>
-    <Button
-        android:id="@+id/mulaideteksi"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/button_blue"
-        android:text="Mulai Deteksi"
-        android:textColor="@color/putih" />
+<!--    <Button-->
+<!--        android:id="@+id/mulaideteksi"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="?attr/actionBarSize"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:background="@drawable/button_blue"-->
+<!--        android:text="Melihat Peta"-->
+<!--        android:textColor="@color/putih" />-->
 
 </LinearLayout>
