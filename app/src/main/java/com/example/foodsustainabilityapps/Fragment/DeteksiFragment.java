@@ -55,8 +55,8 @@ public class DeteksiFragment extends Fragment {
         prioritas4 = view.findViewById(R.id.tvPrioritas4);
         prioritas5 = view.findViewById(R.id.tvPrioritas5);
         prioritas6 = view.findViewById(R.id.tvPrioritas6);
-        deteksiKota = view.findViewById(R.id.deteksiKota);
-//        deteksiProv = view.findViewById(R.id.mulaideteksi);
+        //deteksiKota = view.findViewById(R.id.deteksiKota);
+        deteksiProv = view.findViewById(R.id.deteksiProv);
         tableRowKota = view.findViewById(R.id.tableRow_kota);
         tableRowProv = view.findViewById(R.id.tableRow4a);
         togle = view.findViewById(R.id.switchTogle);
