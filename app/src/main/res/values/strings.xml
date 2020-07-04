@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DB-Detector</string>
+    <string name="app_name">FastReg</string>
     <string name="ncpr">Rasio Konsumsi Normatif terhadap Produksi Bersih per Kapita adalah ...</string>
     <string name="pov">Penduduk Dibawah Garis Kemiskinan adalah ...</string>
     <string name="road">Desa tanpa Akses ke Jalan adalah ...</string>
